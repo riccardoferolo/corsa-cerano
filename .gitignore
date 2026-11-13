@@ -1,0 +1,6 @@
+node_modules/
+dist/
+_lavoro/*
+!_lavoro/package.json
+!_lavoro/*.mjs
+!_lavoro/lod/
