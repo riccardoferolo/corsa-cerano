@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gran Premio di Cerano</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23e1251b%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2216%22 font-family=%22Arial Black%22 font-style=%22italic%22 text-anchor=%22middle%22 fill=%22white%22%3EGP%3C/text%3E%3C/svg%3E">
+  <script type="module" crossorigin src="./assets/index-DGYljQEC.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-iBIQa6t4.css">
+</head>
+<body>
+  <div id="mondo"></div>
+
+  <section id="titolo" class="titolo" hidden>
+    <div class="t-velo"></div>
+    <div class="t-scie"></div>
+    <header class="t-testata">
+      <div class="t-numero">GP</div>
+      <h1 class="t-nome"><span>GRAN PREMIO</span><span class="t-cerano">DI CERANO</span></h1>
+      <p class="t-motto">Corse su strada nelle vie vere di Cerano, al tramonto, con gli amici.</p>
+    </header>
+    <form id="modulo" class="t-modulo" autocomplete="off">
+      <label class="t-campo"><span>Pilota</span><input id="nome" maxlength="16" placeholder="Il tuo nome"></label>
+      <div class="t-campo"><span>Livrea · <b id="nome-livrea"></b></span><div id="livree" class="t-livree"></div></div>
+      <div id="prossima" class="t-prossima"></div>
+      <button type="submit" id="entra" class="t-entra" disabled><span>CARICO CERANO…</span></button>
+      <div class="t-sotto">
+        <span class="t-online"><i></i> Niente stanze: entri e corri con chi è in pista.</span>
+        <label>Grafica
+          <select id="grafica">
+            <option value="auto">Automatica</option>
+            <option value="alta">Alta</option>
+            <option value="media">Media</option>
+            <option value="bassa">Bassa (PC lenti)</option>
+          </select>
+        </label>
+      </div>
+      <p id="errore" class="t-errore"></p>
+    </form>
+    <ul class="t-tasti">
+      <li><kbd>W</kbd><kbd>S</kbd> gas e freno</li>
+      <li><kbd>A</kbd><kbd>D</kbd> sterzo</li>
+      <li><kbd>Spazio</kbd> freno a mano</li>
+      <li><kbd>C</kbd> telecamera</li>
+      <li><kbd>R</kbd> rimetti in pista</li>
+      <li><kbd>Invio</kbd> pronto</li>
+      <li>joypad supportato</li>
+    </ul>
+    <p class="t-crediti">Mappa © OpenStreetMap contributors (ODbL) · ortofoto e altezze © Regione Piemonte, BDTRE, ARPA (CC BY 4.0) · auto «CarConcept» di Eric Chadwick, Darmstadt Graphics Group (CC BY 4.0), da «Free Concept Car 004» di Unity Fan (CC0), marchi tolti · cielo Poly Haven (CC0) · piloti, sponsor e marchi inventati</p>
+  </section>
+
+  <div id="hud" hidden>
+    <div id="semafori" class="semafori" hidden><i></i><i></i><i></i><i></i><i></i></div>
+    <div id="messaggio" class="messaggio"></div>
+    <div class="h-alto-sx">
+      <div class="h-posizione"><b id="posizione">–</b><span id="totale"></span></div>
+      <div class="h-giri"><span>GIRO</span><b id="giro">–</b></div>
+      <div class="h-tempi">
+        <div><span>Giro</span><b id="tempo-giro">–</b></div>
+        <div><span>Migliore</span><b id="tempo-migliore">–</b></div>
+        <div><span>Gara</span><b id="tempo-gara">–</b></div>
+      </div>
+      <ol id="classifica" class="h-classifica"></ol>
+    </div>
+    <div class="h-alto-dx">
+      <canvas id="minimappa" width="210" height="210"></canvas>
+      <div id="rete" class="h-rete"></div>
+    </div>
+    <div class="h-basso-sx">
+      <div id="pista-nome" class="h-pista"></div>
+      <div id="fase" class="h-fase"></div>
+      <div id="aiuto" class="h-aiuto"></div>
+    </div>
+    <div class="h-basso-dx">
+      <div class="h-giri-motore"><div id="giri-barra"></div></div>
+      <div class="h-tachimetro"><b id="velocita">0</b><span>km/h</span></div>
+      <div id="marcia" class="h-marcia">1</div>
+      <div id="scia" class="h-scia" hidden>SCIA</div>
+    </div>
+    <div id="spettatore" class="h-spettatore" hidden></div>
+  </div>
+
+  <section id="risultati" class="risultati" hidden>
+    <div class="r-scheda">
+      <h2 id="risultati-titolo">Arrivo</h2>
+      <table><thead><tr><th>Pos</th><th>Pilota</th><th>Tempo</th><th>Giro migliore</th></tr></thead><tbody id="risultati-righe"></tbody></table>
+      <p id="risultati-nota"></p>
+    </div>
+  </section>
+
+  <div id="carico" class="carico"><div class="c-barra"><i id="carico-barra"></i></div><span id="carico-testo">Accendo i lampioni di Cerano…</span></div>
+</body>
+</html>
