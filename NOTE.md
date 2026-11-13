@@ -10,7 +10,7 @@ abitacolo, sguardo all'indietro; joypad supportato.
 |---|---|
 | Gioco in sviluppo | `npx vite --port 5432` (fermare per PID) — `?locale` per provare in più schede senza internet |
 | Test | `npm test` (16: fisica, piste, contagiri, gara intera con 8 piloti del computer, protocollo di rete) |
-| Pubblicazione | `npm run build` → `dist/` |
+| Pubblicazione | https://riccardoferolo.github.io/corsa-cerano/ — sorgenti su `main` di github.com/riccardoferolo/corsa-cerano, `dist/` spinto a mano sul ramo `gh-pages` dopo `npm run build`; prova: `node _lavoro/prova-online.mjs` |
 | Collaudo a video | `node _lavoro/collaudo.mjs [media]` (gara completa col pilota automatico), `node _lavoro/collaudo-due.mjs [url]` (due giocatori, passaggio dell'host), `node _lavoro/collaudo-spettatore.mjs` (chi esce durante le prove, chi entra a gara iniziata) |
 | Prestazioni | `node _lavoro/misura-fps.mjs <url> <qualita> <secondi>`, `node _lavoro/scatti.mjs media --vsync` |
 | Piste | `node _lavoro/circuiti.mjs [id]` (misure, strozzature, mappa con barriere e griglia), `node _lavoro/larghezze.mjs` (larghezza libera di ogni via) |
